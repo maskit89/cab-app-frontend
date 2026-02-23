@@ -4,6 +4,7 @@ import logo from './assets/logo.jpg';
 import heroBg from './assets/hero-bg.jpg'; 
 import van from './assets/van.jpg';
 import sedan from './assets/sedan.jpg';
+import CookieBanner from './CookieBanner';
 
 function App() {
   return (
@@ -116,6 +117,7 @@ function App() {
         </div>
         <p className="text-[10px] text-gray-600 uppercase tracking-widest">&copy; 2026 ZCabs Luxury Transport Service. All rights reserved.</p>
       </footer>
+      <CookieBanner />
     </div>
   );
 }
