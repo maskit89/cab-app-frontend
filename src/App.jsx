@@ -112,7 +112,7 @@ function App() {
       <footer id="contact" className="bg-black py-12 px-4 border-t border-brand-gold/20 text-center">
         <h2 className="text-2xl font-serif text-brand-gold mb-6 italic">ZCabs Malta</h2>
         <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-sm text-gray-400 mb-8">
-          <a href="tel:+35699927097" className="hover:text-brand-gold transition">📞 +356 9992 7097 bU!J7ukp</a>
+          <a href="tel:+35699927097" className="hover:text-brand-gold transition">📞 +356 9992 7097</a>
           <a href="mailto:zcabsmalta@gmail.com" className="hover:text-brand-gold transition">✉️ zcabsmalta@gmail.com</a>
         </div>
         <p className="text-[10px] text-gray-600 uppercase tracking-widest">&copy; 2026 ZCabs Luxury Transport Service. All rights reserved.</p>

@@ -1,35 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import ReactGA from "react-ga4";
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Initialize dataLayer if it doesn't exist yet
+    window.dataLayer = window.dataLayer || [];
+
     // Check if the user has already answered the consent prompt
-    const consent = localStorage.getItem("ga_consent");
+    const consent = localStorage.getItem("gtm_consent");
     
     if (!consent) {
       setIsVisible(true);
-    } else if (consent === "granted") {
-      initializeGA();
+    } else {
+      // If they already consented in a previous session, tell GTM immediately
+      pushConsentToGTM(consent);
     }
   }, []);
 
-  const initializeGA = () => {
-    // Only fire GA if they accepted
-    ReactGA.initialize("G-ST08W906FZ");
-    ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Landing Page" });
+  const pushConsentToGTM = (status) => {
+    // Push the custom event to GTM's dataLayer
+    window.dataLayer.push({
+      event: 'consent_update',
+      analytics_consent: status // 'granted' or 'denied'
+    });
   };
 
   const handleAccept = () => {
-    localStorage.setItem("ga_consent", "granted");
+    localStorage.setItem("gtm_consent", "granted");
     setIsVisible(false);
-    initializeGA();
+    pushConsentToGTM("granted");
   };
 
   const handleDecline = () => {
-    localStorage.setItem("ga_consent", "denied");
+    localStorage.setItem("gtm_consent", "denied");
     setIsVisible(false);
+    pushConsentToGTM("denied");
   };
 
   if (!isVisible) return null;
