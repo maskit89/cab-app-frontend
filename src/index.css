@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  /* Define your custom ZCabs brand colors here */
+  --color-brand-black: #0a0a0a;
+  --color-brand-gold: #c5a059;
+  --color-brand-light: #f3f4f6;
+}
+
+/* Ensure the whole page takes up the full screen height */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
